@@ -43,3 +43,8 @@ button {
   display: block;
   margin: 0 auto;
 }
+
+.is-hidden {
+  opacity: 0;
+  overflow: hidden;
+}

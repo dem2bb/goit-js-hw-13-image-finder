@@ -1,4 +1,6 @@
 import pictureCreater from "../templates/pictures.hbs";
+import * as basicLightbox from "basiclightbox";
+import "basiclightbox/dist/basicLightbox.min.css";
 
 export default {
   page: 1,
@@ -24,4 +26,17 @@ function createElements(data) {
   const galleryCont = document.querySelector(".gallery");
   const markup = data.hits.map((picture) => pictureCreater(picture)).join("");
   galleryCont.insertAdjacentHTML("beforeend", markup);
+  openModal();
+}
+
+function openModal() {
+  const images = document.querySelectorAll("img");
+  images.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      const instance = basicLightbox.create(`
+    <img src="${e.target.dataset.img}" width="800" height="600">
+`);
+      instance.show();
+    });
+  });
 }

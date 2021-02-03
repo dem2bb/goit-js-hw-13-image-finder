@@ -14,6 +14,7 @@ function searchPicture(event) {
   clearListItems();
   inputText = event.target[0].value;
   API.responseApi(inputText);
+  refs.loadmoreBtn.classList.remove("is-hidden");
 }
 
 function loadMoreBtnHandler(event) {
